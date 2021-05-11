@@ -6,7 +6,7 @@ class Bookcase extends Component {
         super(props)
         this.state = {
             inputValue: '',
-            list:[]
+            list:['Effictive Java','重构改善既有代码的设计']
         }
     }
 
