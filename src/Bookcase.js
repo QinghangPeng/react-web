@@ -15,27 +15,27 @@ class Bookcase extends Component {
         }
     }
 
-    //生命周期
-    // componentWillMount() {
-    //     console.log('componentWillMount  ---- 组件将要挂载到页面的时刻')
-    // }
+    /*生命周期
+    componentWillMount() {
+        console.log('componentWillMount  ---- 组件将要挂载到页面的时刻')
+    }
 
-    // componentDidMount() {
-    //     console.log('componentDidMount  ---- 组件挂载完成的时刻')
-    // }
+    componentDidMount() {
+        console.log('componentDidMount  ---- 组件挂载完成的时刻')
+    }
 
-    // shouldComponentUpdate() {
-    //     console.log('1-shouldComponentUpdate')
-    //     return true
-    // }
+    shouldComponentUpdate() {
+        console.log('1-shouldComponentUpdate')
+        return true
+    }
 
-    // componentWillUpdate() {
-    //     console.log('2-componentWillUpdate')
-    // }
+    componentWillUpdate() {
+        console.log('2-componentWillUpdate')
+    }
 
-    // componentDidUpdate() {
-    //     console.log('4-componentDidUpdate')
-    // }
+    componentDidUpdate() {
+        console.log('4-componentDidUpdate')
+    }*/
 
     render() {
         console.log('3-render  ---- 组件挂载中')
@@ -59,6 +59,13 @@ class Bookcase extends Component {
                                 >
                                 </li>
                                 */
+                               /* react
+                                    单项数据流：
+                                        组件中数据只能单项传递，接收数据的组件只有只读权限，不能修改数据
+                                    react可以和其它框架相结合，比如index.html中新增字体有颜色的div（jQuery语法）
+                                    函数式编程
+                                        代码结构清晰，便于编写测试
+                                 */
                                 <BookcaseItem 
                                     key = {item + index} 
                                     content = {item}
