@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ProperTypes from 'prop-types'
+
 class BookcaseItem extends Component {
 
     constructor(props) {
@@ -7,7 +9,9 @@ class BookcaseItem extends Component {
     }
     render() { 
         return ( 
-            <li onClick = {this.handleClick}>{this.props.content}</li>
+            <li onClick = {this.handleClick}>
+                {this.props.type}-{this.props.content}
+            </li>
          );
     }
 
@@ -15,6 +19,17 @@ class BookcaseItem extends Component {
     handleClick() {
         this.props.deleteItem(this.props.index)
     }
+}
+
+BookcaseItem.ProperTypes = {
+    content: ProperTypes.string,
+    index: ProperTypes.number,
+    deleteItem: ProperTypes.func,
+    type: ProperTypes.string.isRequired
+}
+
+BookcaseItem.defaultProps = {
+    type: '新到'
 }
 
 export default BookcaseItem

@@ -96,7 +96,7 @@ class Bookcase extends Component {
     }
 
     deleteItem(index) {
-        console.log(index)
+        // console.log(index)
         let list = this.state.list
         list.splice(index,1)
         this.setState({
