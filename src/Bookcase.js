@@ -6,6 +6,9 @@ class Bookcase extends Component {
     //构造器
     constructor(props) {
         super(props)
+        this.deleteItem = this.deleteItem.bind(this)
+        this.inputChange = this.inputChange.bind(this)
+        this.addListItem = this.addListItem.bind(this)
         this.state = {
             inputValue: '',
             list:['Effictive Java','重构改善既有代码的设计']
@@ -42,8 +45,8 @@ class Bookcase extends Component {
                 {/* 这是一个div的注释 */}
                 <div>
                     <label htmlFor = "jp">增加书籍：</label>
-                    <input id = "jp" className = "input" value = {this.state.inputValue} onChange = {this.inputChange.bind(this)}/>
-                    <button onClick = {this.addListItem.bind(this)}>增加书籍</button>
+                    <input id = "jp" className = "input" value = {this.state.inputValue} onChange = {this.inputChange}/>
+                    <button onClick = {this.addListItem}>增加书籍</button>
                 </div>
                 <ul>
                     {
@@ -56,9 +59,12 @@ class Bookcase extends Component {
                                 >
                                 </li>
                                 */
-                                <div>
-                                    <BookcaseItem />
-                                </div>
+                                <BookcaseItem 
+                                    key = {item + index} 
+                                    content = {item}
+                                    index = {index}
+                                    deleteItem = {this.deleteItem}
+                                />
                             )
                         })
                     }
