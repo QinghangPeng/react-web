@@ -45,10 +45,16 @@ class Bookcase extends Component {
                 {/* 这是一个div的注释 */}
                 <div>
                     <label htmlFor = "jp">增加书籍：</label>
-                    <input id = "jp" className = "input" value = {this.state.inputValue} onChange = {this.inputChange}/>
+                    <input 
+                        id = "jp" 
+                        className = "input" 
+                        value = {this.state.inputValue} 
+                        onChange = {this.inputChange}
+                        ref = {(input) => {this.input = input}}
+                    />
                     <button onClick = {this.addListItem}>增加书籍</button>
                 </div>
-                <ul>
+                <ul ref = {(ul) => {this.ul = ul}}>
                     {
                         this.state.list.map((item,index) => {
                             return (
@@ -81,10 +87,16 @@ class Bookcase extends Component {
     }
 
     //functions
-    inputChange(e) {
+    /*inputChange(e) {
         // console.log(e.target.value)
         this.setState({
             inputValue: e.target.value
+        })
+    }*/
+    //利用ref来绑定值
+    inputChange() {
+        this.setState({
+            inputValue:this.input.value
         })
     }
 
@@ -92,6 +104,9 @@ class Bookcase extends Component {
         this.setState({
             list: [...this.state.list,this.state.inputValue],
             inputValue: ''
+        },() => {
+            //回调函数，setState是异步的，如果类似这种需要计数，需要在回调里写
+            console.log(this.ul.querySelectorAll('li').length)
         })
     }
 

@@ -21,6 +21,7 @@ class BookcaseItem extends Component {
     }
 }
 
+//参数校验
 BookcaseItem.ProperTypes = {
     content: ProperTypes.string,
     index: ProperTypes.number,
@@ -28,6 +29,7 @@ BookcaseItem.ProperTypes = {
     type: ProperTypes.string.isRequired
 }
 
+//为参数设置默认值
 BookcaseItem.defaultProps = {
     type: '新到'
 }
