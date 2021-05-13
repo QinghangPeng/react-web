@@ -1,9 +1,11 @@
 .input{border:3px solid #ae7000}
+/* 利用css3来实现react的动画 */
 /* .show{opacity: 1; transition: all 1.5s ease-in;} */
 /* .hide{opacity: 0; transition: all 1.5s ease-in;} */
-.show{animation: show-item 5s ease-in forwards;}
-.hide{animation: hide-item 10s ease-in forwards;}
 
+/* 利用keyframes来实现react的动画 但是基本已弃用 */
+/* .show{animation: show-item 5s ease-in forwards;}
+.hide{animation: hide-item 10s ease-in forwards;}
 @keyframes show-item{
     0%{
         opacity: 0;
@@ -32,4 +34,24 @@
         opacity: 0;
         color: green;
     }
-}
+} */
+
+/* 利用react-transition-group 实现动画效果*/
+/* 
+    xxx 表示classNames前缀
+    入场
+    xxx-enter{}      入场之前的动画
+    xxx-enter-active{}    入场到结束之前的动画
+    xxx-enter-done{}      入场到结束的动画
+    出场
+    xxx-exit{}            出场之前的动画
+    xxx-exit-active{}     出场结束之前的动画
+    xxx-exit-done{}       出场到结束的动画 
+*/
+.boss-text-enter{opacity: 0;}
+.boss-text-enter-active{opacity: 1; transition: opacity 2000ms;}
+.boss-text-enter-done{opacity: 1;}
+
+.boss-text-exit{opacity: 1;}
+.boss-text-exit-active{opacity: 0; transition: opacity 2000ms;}
+.boss-text-exit-done{opacity: 0;}
