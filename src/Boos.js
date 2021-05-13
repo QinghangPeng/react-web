@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CSSTransition } from 'react-transition-group'
+import { CSSTransition } from 'react-transition-group';
 
 class Boss extends Component {
     constructor(props) {
@@ -16,7 +16,7 @@ class Boss extends Component {
                 <CSSTransition 
                     in = {this.state.isShow}
                     timeout = {2000}
-                    classNames = "boss-text"
+                    classNames = 'boss-text'
                     unmountOnExit
                 >
                     <div>最新活动 - 五折</div>

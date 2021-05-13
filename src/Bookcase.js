@@ -3,6 +3,7 @@ import './style.css'
 import BookcaseItem from './BookcaseItem'
 import axios from "axios";
 import Boss from "./Boos";
+import { CSSTransition,TransitionGroup } from 'react-transition-group';
 
 class Bookcase extends Component {
     //构造器
@@ -64,32 +65,42 @@ class Bookcase extends Component {
                     <button onClick = {this.addListItem}>增加书籍</button>
                 </div>
                 <ul ref = {(ul) => {this.ul = ul}}>
-                    {
-                        this.state.list.map((item,index) => {
-                            return (
-                                /*
-                                <li key = {item + index}
-                                    onClick = {this.deleteItem.bind(this,index)}
-                                    dangerouslySetInnerHTML = {{__html:item}}
-                                >
-                                </li>
-                                */
-                               /* react
-                                    单项数据流：
-                                        组件中数据只能单项传递，接收数据的组件只有只读权限，不能修改数据
-                                    react可以和其它框架相结合，比如index.html中新增字体有颜色的div（jQuery语法）
-                                    函数式编程
-                                        代码结构清晰，便于编写测试
-                                 */
-                                <BookcaseItem 
-                                    key = {item + index} 
-                                    content = {item}
-                                    index = {index}
-                                    deleteItem = {this.deleteItem}
-                                />
-                            )
-                        })
-                    }
+                    <TransitionGroup>
+                        {
+                            this.state.list.map((item,index) => {
+                                return (
+                                    /*
+                                    <li key = {item + index}
+                                        onClick = {this.deleteItem.bind(this,index)}
+                                        dangerouslySetInnerHTML = {{__html:item}}
+                                    >
+                                    </li>
+                                    */
+                                /* react
+                                        单项数据流：
+                                            组件中数据只能单项传递，接收数据的组件只有只读权限，不能修改数据
+                                        react可以和其它框架相结合，比如index.html中新增字体有颜色的div（jQuery语法）
+                                        函数式编程
+                                            代码结构清晰，便于编写测试
+                                    */
+                                   <CSSTransition 
+                                        timeout = {2000}
+                                        classNames = 'boss-text'
+                                        unmountOnExit
+                                        appear = {true}
+                                        key = {item + index}
+                                   >
+                                        <BookcaseItem 
+                                            key = {item + index} 
+                                            content = {item}
+                                            index = {index}
+                                            deleteItem = {this.deleteItem}
+                                        />
+                                    </CSSTransition>
+                                )
+                            })
+                        }
+                    </TransitionGroup>
                 </ul>
                 <Boss />
             </Fragment>
