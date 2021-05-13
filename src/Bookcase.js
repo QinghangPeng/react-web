@@ -1,6 +1,7 @@
 import { Component, Fragment } from "react";
 import './style.css'
 import BookcaseItem from './BookcaseItem'
+import axios from "axios";
 
 class Bookcase extends Component {
     //构造器
@@ -36,6 +37,13 @@ class Bookcase extends Component {
     componentDidUpdate() {
         console.log('4-componentDidUpdate')
     }*/
+
+    //在组件加载完成之后远程请求数据
+    componentDidMount() {
+        axios.post('http://www.baidu.com')
+            .then((res) => {console.log('axios 获取数据成功' + JSON.stringify(res))})
+            .catch((error) => {console.log('axios 获取数据失败')})
+    }
 
     render() {
         // console.log('3-render  ---- 组件挂载中')
@@ -122,3 +130,10 @@ class Bookcase extends Component {
 }
 
 export default Bookcase
+
+/**
+ *  npm install axios                    安装到项目目录下，但是不会写入到依赖
+ *  npm install -g axios                 全局安装
+ *  npm install -save axios              安装到项目目录下，同时写入到依赖
+ *  npm install -save-dev axios          安装到项目目录下，同时写入pro 和 dev 的依赖 
+ */
