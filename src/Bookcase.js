@@ -2,6 +2,7 @@ import { Component, Fragment } from "react";
 import './style.css'
 import BookcaseItem from './BookcaseItem'
 import axios from "axios";
+import Boss from "./Boos";
 
 class Bookcase extends Component {
     //构造器
@@ -90,6 +91,7 @@ class Bookcase extends Component {
                         })
                     }
                 </ul>
+                <Boss />
             </Fragment>
         )
     }
