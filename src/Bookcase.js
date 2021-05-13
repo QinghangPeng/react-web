@@ -38,7 +38,7 @@ class Bookcase extends Component {
     }*/
 
     render() {
-        console.log('3-render  ---- 组件挂载中')
+        // console.log('3-render  ---- 组件挂载中')
         return (
             //flex
             <Fragment>
